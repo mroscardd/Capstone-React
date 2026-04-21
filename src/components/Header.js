@@ -1,10 +1,10 @@
 import Nav from './Nav'
+import logo from '../assets/Logo.svg'
 
 function Header () {
     return(
         <header>
-            <h1>HEADER</h1>
-            <img src={''} alt='logo littlelemon'/>
+            <img src={logo} alt='logo littlelemon'/>
             <Nav/>
         </header>
     )
