@@ -1,7 +1,7 @@
-import Card from '../components/Card'
-import greeksalad from '../assets/greek salad.jpg'
-import bruchetta from '../assets/bruchetta.jpg'
-import lemmondesert from '../assets/lemon dessert.jpg'
+import Card from '../../components/Card'
+import greeksalad from '../../assets/greek salad.jpg'
+import bruchetta from '../../assets/bruchetta.jpg'
+import lemmondesert from '../../assets/lemon dessert.jpg'
 
 function Highlights () {
 
@@ -12,7 +12,6 @@ function Highlights () {
       image: greeksalad
     },
     {
-        
       title: "Bruschetta",
       content:"Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
       price: 5.99,
@@ -26,14 +25,16 @@ function Highlights () {
     }]
 
     return(
-        <section>
-            <h1>This weeks special!</h1>
-            <a href={'#'}>Button</a>
-            <div>
+        <section className="highlights">
+          <div className="special">
+            <h2>This weeks special!</h2>
+            <a id ="order" href={'#'}>Online Menu</a>
+          </div>
+          <div className="allCards">
                 {CardContent.map(p =>
                 <Card title={p.title} content={p.content} price={p.price} image={p.image} key={p.title}/>
                 )}
-              </div>
+          </div>
         </section>
     )
 }

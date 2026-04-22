@@ -1,15 +1,13 @@
 function Card({image, title, price, content}) {
     return (
-        <article>
-            <div>
-                <img src={image} alt={title} style={{width: '200px'}}/>
+        <article className="card">
+            <div className="top">
+                <img src={image} alt={title}/>
             </div>
-            <div>
-                <h4>{title}</h4>
-                <span>{price}</span>
+            <div className="cardBody">
+                <h3>{title}</h3>
+                <span>${price}</span>
                 <p>{content}</p>
-            </div>
-            <div>
                 <a href={'#'}>
                     <strong>Order a delivery</strong>
                 </a>
