@@ -1,4 +1,6 @@
 import logo from '../assets/lemon-logo3.png'
+import { HashLink } from 'react-router-hash-link';
+import { Link } from 'react-router-dom';
 
 function Footer () {
     return(
@@ -9,13 +11,13 @@ function Footer () {
             <div>
                 <h4>Doormat Navigation</h4>
                 <ul>
-                    <li><a href={'#'}>Home</a></li>
-                    <li><a href={'#'}>About</a></li>
-                    <li><a href={'#'}>Menu</a></li>
-                    <li><a href={'#'}>Reservations</a></li>
-                    <li><a href={'#'}>Order Online</a></li>
-                    <li><a href={'#'}>Login</a></li>
-              </ul>
+                    <li><Link to="/">Home</Link></li>
+                    <li><HashLink smooth to="/#about">About</HashLink></li>
+                    <li><HashLink smooth to="/#highlights">Menu</HashLink></li>
+                    <li><Link to="/booking">Reservations</Link></li>
+                    <li><HashLink smooth to="/#highlights">Order Online</HashLink></li>
+                    <li><HashLink smooth to="/#">Login</HashLink></li>
+                </ul>
             </div>
             <div>
                 <h4>Contact</h4>

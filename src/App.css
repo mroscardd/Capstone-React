@@ -1,4 +1,13 @@
+html {
+  scroll-behavior: smooth;
+}
 
+h1, h2, h3, h4 {
+  font-family: 'Courier New', Courier, monospace;
+  /* Opcional: añade estas propiedades para que luzcan mejor */
+  font-weight: bold; 
+  letter-spacing: -0.5px;
+}
 
 /* HEADER */
 
@@ -7,7 +16,7 @@ header {
   display: flex;
   justify-content: center;
   gap: 10em;
-  background: rgb(12, 12, 12)
+  background: #0c0c0c;
 }
 
 nav {
@@ -17,6 +26,7 @@ nav {
 nav ul{
   display: flex;
   gap: 3rem;
+  flex-wrap: wrap;
 }
 
 nav li {
@@ -101,17 +111,19 @@ main{
 
 
 #highlights {
-  max-width: 1200px;
   margin: 0 auto;
   margin-top: 5rem;
+
 }
 
 .special {
   display:flex;
   justify-content: space-between;
   align-items: center;
-  gap: 20rem;
+  max-width:60rem;
+  margin: 0 auto;
   padding: 2rem;
+  gap: 1rem;
 }
 
 #order {
@@ -127,15 +139,20 @@ main{
 .allCards {
   display: flex;
   justify-content: center;
-  gap: 8rem;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 100%;
+  gap: clamp(1rem, 5vw, 6rem);
+  padding: 1rem
+
 }
 
 .card {
   display: flex;
   flex-direction: column;
+  flex: 0 1 17rem;
   background: #f9f9f9;
-  min-width: 17rem;
-  max-width: 17rem;
+  min-width: 250px;
   height: 30rem;
   border-radius: 10px;
   overflow: hidden;
@@ -163,7 +180,9 @@ main{
 .cardBody span {
   position: absolute;
   right: 1.2rem;
-  top: 1.4rem;
+  top: 1.2rem;
+  color: #ff8c00;
+  font-weight: bold
 }
 
 .cardBody a{
@@ -193,6 +212,7 @@ main{
 .rating {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 2rem;
 }
 
@@ -284,6 +304,7 @@ min-width: 30ch;
 .footer li, a {
   list-style: none;
   text-decoration: none;
+  color: black
 }
 
 .footer h4{
