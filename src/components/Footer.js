@@ -1,11 +1,13 @@
+import logo from '../assets/lemon-logo3.png'
+
 function Footer () {
     return(
-        <footer>
+        <footer className="footer">
             <div>
-                <img src={''} alt="imagen footer"/>
+                <img src={logo} alt="imagen footer" />
             </div>
             <div>
-                <h3>Doormat Navigation</h3>
+                <h4>Doormat Navigation</h4>
                 <ul>
                     <li><a href={'#'}>Home</a></li>
                     <li><a href={'#'}>About</a></li>
@@ -16,7 +18,7 @@ function Footer () {
               </ul>
             </div>
             <div>
-                <h3>Contact</h3>
+                <h4>Contact</h4>
                 <ul>
                     <li><a href={'#'}>Adress</a></li>
                     <li><a href={'#'}>Phone Number</a></li>
@@ -24,7 +26,7 @@ function Footer () {
                 </ul>
             </div>
             <div>
-                <h3>Social Media Links</h3>
+                <h4>Social Media Links</h4>
                 <ul>
                     <li><a href={'#'}>X</a></li>
                     <li><a href={'#'}>Facebook</a></li>

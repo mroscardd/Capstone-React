@@ -1,5 +1,7 @@
 
+
 /* HEADER */
+
 
 header {
   display: flex;
@@ -19,8 +21,6 @@ nav ul{
 
 nav li {
   list-style: none;
-
-
 }
 
 nav a {
@@ -28,6 +28,7 @@ nav a {
   font-weight: bold;
   color: white
 }
+
 
 
 /*=========
@@ -41,14 +42,18 @@ main{
   gap: 3rem;
 }
 
+
+
 /* HERO */
 
-.hero {
+
+
+#hero {
   display:flex;
   justify-content: center;
   gap: 25rem;
   padding: 2rem;
-  background: rgba(30, 69, 34, 0.816);
+  background: #1e4522d0;
   min-height: 300px;
 }
 
@@ -56,9 +61,10 @@ main{
   display: flex;
   flex-direction: column;
   width: 35ch;
+  min-width: 35ch;
 }
 
-.hero img {
+#hero img {
   right: 25%;
   top: 5rem;
   border-radius: 20px;
@@ -67,17 +73,17 @@ main{
   margin-bottom: -23rem;
 }
 
-.hero h1{
+#hero h1{
   margin:0.3em;
   color: yellow
 }
 
-.hero h2, .hero p {
+#hero h2, #hero p {
   margin:0.3em;
   color: white
 }
 
-.hero .button {
+#hero .button {
   margin-top: 3em;
   text-decoration: none;
   background: black;
@@ -88,9 +94,13 @@ main{
   font-weight: bold;
 }
 
+
+
 /* HIGHLIGHTS */
 
-.highlights {
+
+
+#highlights {
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 5rem;
@@ -104,11 +114,6 @@ main{
   padding: 2rem;
 }
 
-.highlights h2 {
-  ;
-
-}
-
 #order {
   text-decoration: none;
   background: black;
@@ -117,16 +122,13 @@ main{
   padding: 1rem;
   color: white;
   font-weight: bold;
-
 }
 
 .allCards {
   display: flex;
   justify-content: center;
   gap: 8rem;
-
 }
-
 
 .card {
   display: flex;
@@ -152,7 +154,6 @@ main{
   padding: 0.8rem;
   position: relative;
   flex-grow: 1;
-
 }
 
 .cardBody h3 {
@@ -165,13 +166,133 @@ main{
   top: 1.4rem;
 }
 
-
 .cardBody a{
   text-decoration: none;
   align-self: center;
   margin-top: auto;
 
 }
+
+
+
+/* TESTIMONIALS */
+
+
+
+#testimonials{
+  margin: 1em 0;
+  background: #FBDABB;
+  padding: 3rem 0 10rem 0;
+}
+
+#testimonials h2{
+  text-align: center;
+  padding: 3rem;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.ratingCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25ch;
+  min-width: 25ch;
+  gap:1rem;
+  background-color: #1e4522d0;
+  padding: 1rem;
+  border-radius: 10px;
+  color: white
+}
+
+.photoName {
+  display: flex;
+  align-self: start;
+  gap: 1rem;
+  flex-grow: 1;
+}
+
+
+
+/* ABOUT */
+
+
+
+#about {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 120ch;
+  margin: 5rem auto;
+  gap: 8rem;
+  height: 30rem;
+
+}
+
+.first {
+max-width: 40ch;
+min-width: 30ch;
+}
+.second {
+  position:relative;
+}
+
+.a {
+  width: 25ch;
+   z-index: 1;
+}
+
+.b {
+  width: 25ch;
+  position:absolute;
+  top: 100px;  /* Baja la segunda foto */
+  left: 100px;
+  z-index: 2;
+
+}
+
+
+
+/* FOOTER */
+
+
+
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 9rem;
+  padding-bottom: 3rem;
+  padding-top: 1rem;
+  background: #EDEFEE;
+}
+
+.footer div{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+.footer img{
+  width:6rem;
+}
+
+.footer li, a {
+  list-style: none;
+  text-decoration: none;
+}
+
+.footer h4{
+  margin: 0;
+}
+
+
+
+
 
 
 

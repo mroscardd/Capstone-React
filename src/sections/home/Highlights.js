@@ -25,7 +25,7 @@ function Highlights () {
     }]
 
     return(
-        <section className="highlights">
+        <section id="highlights">
           <div className="special">
             <h2>This weeks special!</h2>
             <a id ="order" href={'#'}>Online Menu</a>

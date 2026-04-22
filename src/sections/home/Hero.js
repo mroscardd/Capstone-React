@@ -4,7 +4,7 @@ import hero from '../../assets/hero.jpg'
 
 function Hero () {
     return(
-        <section className="hero">
+        <section id="hero">
             <div className="title">
                 <h1>Little Lemon</h1>
                 <h2>Chicago</h2>

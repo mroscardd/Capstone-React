@@ -24,7 +24,7 @@ function Testimonials () {
       user: "Lara Kostic",
       rating: 4,
       image: lara,
-      review: "he grilled salmon was cooked to perfection, highly recommended!"
+      review: "The grilled salmon was cooked to perfection, highly recommended!"
     },
     {
       user: "Julián Aris",
@@ -35,9 +35,10 @@ function Testimonials () {
     ]
 
     return(
-        <section>
+        <section id="testimonials">
 
             <h2>Testimonials</h2>
+            <div className="rating">
             {reviewContent.map(p => {
                 return (
                 <Rating user={p.user}
@@ -48,7 +49,7 @@ function Testimonials () {
                         />
             )}
         )}
-
+        </div>
         </section>
     )
 }
