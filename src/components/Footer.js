@@ -10,7 +10,7 @@ function Footer () {
                 <img src={logo} alt="imagen footer" />
             </div>
             <div>
-                <h4>Doormat Navigation</h4>
+                <h4>Navigation</h4>
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><HashLink smooth to="/#about">About</HashLink></li>
@@ -29,7 +29,7 @@ function Footer () {
                 </ul>
             </div>
             <div>
-                <h4>Social Media Links</h4>
+                <h4>Social Media</h4>
                 <ul>
                     <li><a href={'#'}>X</a></li>
                     <li><a href={'#'}>Facebook</a></li>
