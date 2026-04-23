@@ -5,8 +5,10 @@ import logo from '../assets/Logo.svg'
 function Header () {
     return(
         <header>
-            <img src={logo} alt='logo littlelemon'/>
-            <Nav/>
+            <div className="navContainer">
+              <img src={logo} alt='logo littlelemon' />
+              <Nav/>
+            </div>
         </header>
     )
 }

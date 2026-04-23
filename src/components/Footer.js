@@ -3,6 +3,7 @@ import { HashLink } from 'react-router-hash-link';
 import { Link } from 'react-router-dom';
 
 function Footer () {
+
     return(
         <footer className="footer">
             <div>

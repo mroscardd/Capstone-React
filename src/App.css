@@ -5,29 +5,84 @@ html {
 h1, h2, h3, h4 {
   font-family: 'Courier New', Courier, monospace;
   /* Opcional: añade estas propiedades para que luzcan mejor */
-  font-weight: bold; 
+  font-weight: bold;
   letter-spacing: -0.5px;
 }
+
 
 /* HEADER */
 
 
+
 header {
-  display: flex;
-  justify-content: center;
-  gap: 10em;
   background: #0c0c0c;
+  padding-left:1rem;
+  padding-right:1rem;
 }
 
-nav {
-  padding: 1em
-}
-
-nav ul{
+.navContainer{
   display: flex;
-  gap: 3rem;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 62rem;
+  margin: 0 auto;
 }
+
+.menu-icon {
+  cursor: pointer;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.bar {
+  width: 3rem;
+  height: 3rem;
+  transition: 0.3s;
+  filter: brightness(0) invert(1)
+}
+
+.nav-links {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  background-color: #0c0c0c;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  gap: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: center;
+  color: white;
+}
+
+.nav-links.active {
+  display: flex;
+}
+
+nav li {
+  list-style: none;
+
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white
+}
+
+@media (min-width: 850px) {
+
+.menu-icon {
+  display: none;
+}
+
+.nav-links {
+    display: flex; /* Siempre visible en PC */
+    flex-direction: row;
+    position: static;
+    width: auto;
+    gap: 3rem;
+  }
 
 nav li {
   list-style: none;
@@ -36,7 +91,10 @@ nav li {
 nav a {
   text-decoration: none;
   font-weight: bold;
-  color: white
+  color: white;
+  white-space: nowrap
+}
+
 }
 
 
