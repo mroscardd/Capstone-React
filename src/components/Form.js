@@ -13,7 +13,7 @@ function Form({availableTimes, dispatch}) {
     }
 
     return (
-    <form onSubmit={''}>
+    <form onSubmit={e => e.preventDefault()}>
         <label htmlFor="res-date">Choose date</label>
         <input
             type="date"
@@ -31,7 +31,7 @@ function Form({availableTimes, dispatch}) {
             required
             aria-required="true"
             >
-            {availableTimes.map(p => <option key={p} value={p}>{p}</option>)}
+            {availableTimes?.map(p => <option key={p} value={p}>{p}</option>)}
         </select>
         <label htmlFor="guests">Number of guests</label>
         <input
