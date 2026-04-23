@@ -6,35 +6,39 @@ function Footer () {
 
     return(
         <footer className="footer">
-            <div>
-                <img src={logo} alt="imagen footer" />
+            <div className="div1">
+                <div>
+                    <img src={logo} alt="imagen footer" />
+                </div>
+                <div>
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><Link to="/">Home</Link></li>
+                        <li><HashLink smooth to="/#about">About</HashLink></li>
+                        <li><HashLink smooth to="/#highlights">Menu</HashLink></li>
+                        <li><Link to="/booking">Reservations</Link></li>
+                        <li><HashLink smooth to="/#highlights">Order Online</HashLink></li>
+                        <li><HashLink smooth to="/#">Login</HashLink></li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <h4>Navigation</h4>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><HashLink smooth to="/#about">About</HashLink></li>
-                    <li><HashLink smooth to="/#highlights">Menu</HashLink></li>
-                    <li><Link to="/booking">Reservations</Link></li>
-                    <li><HashLink smooth to="/#highlights">Order Online</HashLink></li>
-                    <li><HashLink smooth to="/#">Login</HashLink></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Contact</h4>
-                <ul>
-                    <li><a href={'#'}>Adress</a></li>
-                    <li><a href={'#'}>Phone Number</a></li>
-                    <li><a href={'#'}>Email</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Social Media</h4>
-                <ul>
-                    <li><a href={'#'}>X</a></li>
-                    <li><a href={'#'}>Facebook</a></li>
-                    <li><a href={'#'}>Instagram</a></li>
-                </ul>
+            <div className="div2">
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href={'#'}>Adress</a></li>
+                        <li><a href={'#'}>Phone Number</a></li>
+                        <li><a href={'#'}>Email</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Social Media</h4>
+                    <ul>
+                        <li><a href={'#'}>X</a></li>
+                        <li><a href={'#'}>Facebook</a></li>
+                        <li><a href={'#'}>Instagram</a></li>
+                    </ul>
+                </div>
             </div>
         </footer>
     )

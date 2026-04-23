@@ -1,8 +1,8 @@
 import Form from '../components/Form'
 
-function BookingPage() {
+function BookingPage({availableTimes, dispatch}) {
     return(
-        <Form/>
+        <Form availableTimes={availableTimes} dispatch = {dispatch}/>
     )
 }
 

@@ -1,10 +1,16 @@
 import { useState } from "react"
 
-function Form() {
+function Form({availableTimes, dispatch}) {
     const [data, setData] = useState(
         {date: "", time: "", guest: "", ocassion:"" }
     )
 
+
+    const handleDate = (e) => {
+        setData({...data, date: e.target.value})
+        const selectedDate = e.target.value
+        dispatch({type: 'UPDATE_TIMES', payload: selectedDate})
+    }
 
     return (
     <form onSubmit={''}>
@@ -13,20 +19,19 @@ function Form() {
             type="date"
             id="res-date"
             value={data.date}
-            onChange={e => setData({...data, date: e.target.value})}
+            onChange={handleDate}
+            required
+            aria-required="true"
             />
         <label htmlFor="res-time">Choose time</label>
         <select
             id="res-time"
             value={data.time}
             onChange={e => setData({...data, time: e.target.value})}
+            required
+            aria-required="true"
             >
-            <option>17:00</option>
-            <option>18:00</option>
-            <option>19:00</option>
-            <option>20:00</option>
-            <option>21:00</option>
-            <option>22:00</option>
+            {availableTimes.map(p => <option key={p} value={p}>{p}</option>)}
         </select>
         <label htmlFor="guests">Number of guests</label>
         <input
@@ -37,6 +42,8 @@ function Form() {
             id="guests"
             value={data.guest}
             onChange={e => setData({...data, guest: e.target.value})}
+            required
+            aria-required="true"
             />
         <label htmlFor="occasion">Occasion</label>
         <select
