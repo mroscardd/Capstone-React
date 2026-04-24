@@ -1,4 +1,7 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+
+const today = new Date()
+    today.setHours(0, 0, 0, 0)
 
 
 function Form({availableTimes, dispatch, submitForm}) {
@@ -6,6 +9,24 @@ function Form({availableTimes, dispatch, submitForm}) {
         {name: "", date: "", time: "", guest: "", ocassion:"Birthday" }
     )
 
+    const[blur, setBlur] = useState(
+        {blurName: false, blurDate: false, blurTime: false }
+    )
+
+    const [disabled, setDisabled]= useState(true)
+
+
+    useEffect(() => {
+
+      if (data.name.length > 3
+        && new Date(data.date) >= today
+        && data.time !== ''
+      ) {
+        return setDisabled(false)
+      } else {
+        return setDisabled(true)
+      }
+    }, [data])
 
     const handleDate = (e) => {
         setData({...data, date: e.target.value})
@@ -31,7 +52,11 @@ function Form({availableTimes, dispatch, submitForm}) {
             onChange={e => setData({...data, name: e.target.value})}
             required
             aria-required="true"
+            onBlur={() => setBlur({...blur, blurName: true})}
             />
+        {data.name.length < 4 && blur.blurName &&
+        <p>Name is required at least 4 characters</p>}
+
         <label htmlFor="res-date">Choose date</label>
         <input
             type="date"
@@ -40,7 +65,11 @@ function Form({availableTimes, dispatch, submitForm}) {
             onChange={handleDate}
             required
             aria-required="true"
+            onBlur={() => setBlur({...blur, blurDate: true})}
             />
+        {new Date(data.date) <= today && blur.blurDate &&
+        <p>Invalid date</p>}
+
         <label htmlFor="res-time">Choose time</label>
         <select
             id="res-time"
@@ -48,15 +77,18 @@ function Form({availableTimes, dispatch, submitForm}) {
             onChange={e => setData({...data, time: e.target.value})}
             required
             aria-required="true"
+            onBlur={() => setBlur({...blur, blurTime: true})}
             >
             <option value="">Choose hour</option>
             {availableTimes?.map(p => <option key={p} value={p}>{p}</option>)}
         </select>
+        {data.time === '' && blur.blurTime &&
+        <p>Choose the hour</p>}
         <label htmlFor="guests">Number of guests</label>
         <input
             type="number"
-            placeholder="1"
-            min="1"
+            placeholder="2"
+            min="2"
             max="10"
             id="guests"
             value={data.guest}
@@ -74,7 +106,11 @@ function Form({availableTimes, dispatch, submitForm}) {
             <option value="Enjoy">Enjoy</option>
             <option value="Anniversary">Anniversary</option>
         </select>
-        <input type="submit" value="Make Your reservation" aria-label="On Click"/>
+        <input type="submit"
+            value="Make Your reservation"
+            aria-label="On Click"
+            disabled={disabled}
+            />
     </form>
  )}
 

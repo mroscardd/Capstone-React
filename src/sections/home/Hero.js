@@ -11,9 +11,8 @@ function Hero () {
                     <h2>Chicago</h2>
                     <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
                     </p>
-                    <a className="button" href='#'>
-                        <Link to="/booking">Reserve a Table
-                    </Link></a>
+                    <Link className="button" to="/booking">Reserve a Table</Link>
+                    
 
                 </div>
                 <img src={hero} alt="imagen de comida"/>
