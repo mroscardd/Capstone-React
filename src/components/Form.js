@@ -6,14 +6,14 @@ const today = new Date()
 
 function Form({availableTimes, dispatch, submitForm}) {
     const [data, setData] = useState(
-        {name: "", date: "", time: "", guest: "", ocassion:"Birthday" }
+        {name: "", date: "", time: "", guest: "2", occasion:"Birthday" }
     )
 
     const[blur, setBlur] = useState(
         {blurName: false, blurDate: false, blurTime: false }
     )
 
-    const [disabled, setDisabled]= useState(true)
+    const [isValid, setIsValid]= useState(true)
 
 
     useEffect(() => {
@@ -22,9 +22,9 @@ function Form({availableTimes, dispatch, submitForm}) {
         && new Date(data.date) >= today
         && data.time !== ''
       ) {
-        return setDisabled(false)
+        return setIsValid(false)
       } else {
-        return setDisabled(true)
+        return setIsValid(true)
       }
     }, [data])
 
@@ -51,6 +51,7 @@ function Form({availableTimes, dispatch, submitForm}) {
             value={data.name}
             onChange={e => setData({...data, name: e.target.value})}
             required
+            maxLength={20}
             aria-required="true"
             onBlur={() => setBlur({...blur, blurName: true})}
             />
@@ -99,8 +100,8 @@ function Form({availableTimes, dispatch, submitForm}) {
         <label htmlFor="occasion">Occasion</label>
         <select
             id="occasion"
-            value={data.ocassion}
-            onChange={e => setData({...data, ocassion: e.target.value})}
+            value={data.occasion}
+            onChange={e => setData({...data, occasion: e.target.value})}
             >
             <option value="Birthday">Birthday</option>
             <option value="Enjoy">Enjoy</option>
@@ -109,7 +110,7 @@ function Form({availableTimes, dispatch, submitForm}) {
         <input type="submit"
             value="Make Your reservation"
             aria-label="On Click"
-            disabled={disabled}
+            disabled={isValid}
             />
     </form>
  )}

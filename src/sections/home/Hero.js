@@ -12,7 +12,7 @@ function Hero () {
                     <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
                     </p>
                     <Link className="button" to="/booking">Reserve a Table</Link>
-                    
+
 
                 </div>
                 <img src={hero} alt="imagen de comida"/>

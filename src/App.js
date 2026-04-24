@@ -10,6 +10,11 @@ import { fetchAPI } from './api';
 import { submitAPI } from './api'
 
 
+export const initializeTimes = () => {
+    const today = new Date();
+    return fetchAPI(today);
+};
+
 
 export const updateTimes = (state, action) => {
     switch(action.type) {
@@ -22,10 +27,6 @@ export const updateTimes = (state, action) => {
         }
     }
 
-export const initializeTimes = () => {
-    const today = new Date();
-    return fetchAPI(today);
-};
 
 function App() {
 
