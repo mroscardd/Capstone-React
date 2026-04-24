@@ -11,7 +11,7 @@ import { submitAPI } from './api'
 
 
 
-const updateTimes = (state, action) => {
+export const updateTimes = (state, action) => {
     switch(action.type) {
         case 'UPDATE_TIMES':
             return fetchAPI(action.payload)
@@ -22,7 +22,7 @@ const updateTimes = (state, action) => {
         }
     }
 
-const initializeTimes = () => {
+export const initializeTimes = () => {
     const today = new Date();
     return fetchAPI(today);
 };
