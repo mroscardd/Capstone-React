@@ -3,33 +3,42 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import HomePage from './views/HomePage'
 import BookingPage from './views/BookingPage'
-import {Routes, Route} from 'react-router-dom'
+import ConfirmedBooking from './views/ConfirmedBooking'
+import {Routes, Route, useNavigate} from 'react-router-dom'
 import { useReducer } from 'react';
+import { fetchAPI } from './api';
+import { submitAPI } from './api'
 
 
-export const initializeTimes = () => {
-        return ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+
+const updateTimes = (state, action) => {
+    switch(action.type) {
+        case 'UPDATE_TIMES':
+            return fetchAPI(action.payload)
+
+        default:
+            return state;
+
         }
+    }
 
-
-export const updateTimes = (state, action) => {
-        switch(action.type) {
-            case 'UPDATE_TIMES':
-                return initializeTimes();
-
-
-            default:
-                return state;
-
-            }
-        }
-
+const initializeTimes = () => {
+    const today = new Date();
+    return fetchAPI(today);
+};
 
 function App() {
 
 
-    const[availableTimes, dispatch] = useReducer(updateTimes,[], initializeTimes)
+    const[availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes)
 
+    const navigate = useNavigate()
+
+    const submitForm = (formdata) => {
+        submitAPI(formdata)
+        navigate("booking/confirmed")
+
+    }
 
 
     return (
@@ -37,12 +46,11 @@ function App() {
         <Header/>
         <main>
             <Routes>
-              <Route path="/" element={<HomePage />}></Route>
+              <Route path="/" element={<HomePage/>}></Route>
               <Route path="/booking" element={<BookingPage
-                                            availableTimes={availableTimes}
-                                            dispatch = {dispatch}
-                                            />
-                                            }></Route>
+                availableTimes={availableTimes}
+                dispatch = {dispatch} submitForm={submitForm}/>}></Route>
+               <Route path="/booking/confirmed" element={<ConfirmedBooking/>}></Route>
             </Routes>
         </main>
         <Footer/>

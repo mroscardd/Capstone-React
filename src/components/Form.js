@@ -1,19 +1,37 @@
 import { useState } from "react"
 
-function Form({availableTimes, dispatch}) {
+
+function Form({availableTimes, dispatch, submitForm}) {
     const [data, setData] = useState(
-        {date: "", time: "", guest: "", ocassion:"" }
+        {name: "", date: "", time: "", guest: "", ocassion:"Birthday" }
     )
 
 
     const handleDate = (e) => {
         setData({...data, date: e.target.value})
         const selectedDate = e.target.value
-        dispatch({type: 'UPDATE_TIMES', payload: selectedDate})
+        const dateObject = new Date(selectedDate)
+        dispatch({type: 'UPDATE_TIMES', payload: dateObject})
+    }
+
+    const handleSubmit= (e) => {
+        e.preventDefault()
+        submitForm(data)
+        console.log(data)
+
     }
 
     return (
-    <form onSubmit={e => e.preventDefault()}>
+    <form onSubmit={handleSubmit}>
+         <label htmlFor="res-name">Name</label>
+        <input
+            type="text"
+            id="res-name"
+            value={data.name}
+            onChange={e => setData({...data, name: e.target.value})}
+            required
+            aria-required="true"
+            />
         <label htmlFor="res-date">Choose date</label>
         <input
             type="date"
@@ -31,6 +49,7 @@ function Form({availableTimes, dispatch}) {
             required
             aria-required="true"
             >
+            <option value="">Choose hour</option>
             {availableTimes?.map(p => <option key={p} value={p}>{p}</option>)}
         </select>
         <label htmlFor="guests">Number of guests</label>
@@ -51,8 +70,9 @@ function Form({availableTimes, dispatch}) {
             value={data.ocassion}
             onChange={e => setData({...data, ocassion: e.target.value})}
             >
-            <option>Birthday</option>
-            <option>Anniversary</option>
+            <option value="Birthday">Birthday</option>
+            <option value="Enjoy">Enjoy</option>
+            <option value="Anniversary">Anniversary</option>
         </select>
         <input type="submit" value="Make Your reservation"/>
     </form>

@@ -78,7 +78,7 @@ nav a {
 }
 
 .nav-links {
-    display: flex; /* Siempre visible en PC */
+    display: flex;
     flex-direction: row;
     position: static;
     width: auto;
@@ -389,32 +389,40 @@ min-width: 30ch;
 
 
 .footer{
+  background: #EDEFEE;
+}
+
+.Contentfooter {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
   align-items: start;
   gap: 3rem;
   padding-bottom: 3rem;
   padding-top: 1rem;
   padding: 3rem 1rem 1rem 1rem;
-  background: #EDEFEE;
+  margin: 0 auto;
+  max-width: 62rem;
+
 }
 
 .div1{
   display:flex;
   gap: 3rem;
+  align-items: center;
+
 }
 
 .div2{
   display:flex;
-  justify-content: center;
+  align-items: center;
   gap: 3rem;
-
 }
 
-.footer div div{
+.footer div div div{
   display: flex;
   flex-direction:column;
+  justify-content: space-between;
   align-items: center;
 }
 
