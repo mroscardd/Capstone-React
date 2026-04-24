@@ -43,20 +43,19 @@ function App() {
 
 
     return (
-        <>
-        <Header/>
-        <main>
-            <Routes>
-              <Route path="/" element={<HomePage/>}></Route>
-              <Route path="/booking" element={<BookingPage
-                availableTimes={availableTimes}
-                dispatch = {dispatch} submitForm={submitForm}/>}></Route>
-               <Route path="/booking/confirmed" element={<ConfirmedBooking/>}></Route>
-            </Routes>
-        </main>
-        <Footer/>
-
-        </>
+        <div className="wrapper">
+            <Header/>
+            <main>
+                <Routes>
+                <Route path="/" element={<HomePage/>}></Route>
+                <Route path="/booking" element={<BookingPage
+                    availableTimes={availableTimes}
+                    dispatch = {dispatch} submitForm={submitForm}/>}></Route>
+                <Route path="/booking/confirmed" element={<ConfirmedBooking/>}></Route>
+                </Routes>
+            </main>
+            <Footer/>
+        </div>
     )
 }
 
