@@ -133,7 +133,7 @@ main{
 
 
 #hero {
-  background: #1e4522d0;
+  background: #47603f;
 
 }
 
@@ -462,20 +462,76 @@ min-width: 30ch;
 /*=============
     BOOKINGPAGE
   =============*/
-
-
 .bookingPage{
- 
+  display: flex;
+  background: #fbdabb;
+  flex: 1 0 auto;
+}
+
+.formContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 3rem;
 }
 
 
-
 form {
-  flex: 1;
-  display: grid;
-  max-width: 200px;
-  gap:20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:1rem;
+  align-items: center;
+  margin: 1rem auto;
+  border-radius: 10px;
+  width: 300px;
+  padding: 1rem;
+  background: #47603f;
+
   }
+
+  form label{
+    font-family: 'Courier New', Courier, monospace;
+    color: #edefee;
+    font-weight: bold;
+    align-self: start;
+    margin-left: 0.3rem;
+    font-size: 0.95rem;
+
+  }
+
+  form input, select {
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 2px solid rgb(210, 210, 210) ;
+    width: 300px;
+    box-sizing: border-box;
+    background: #edefee
+  }
+
+  form p {
+    color: #ffa658f7;
+    margin: 0;
+    font-style: italic;
+    font-size: 0.8rem;
+    align-self: start;
+    margin-left: 0.3rem;
+  }
+
+.sumbitButton{
+    background: #0c0c0c;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    width: fit-content;
+    padding: 1rem;
+    cursor: pointer
+  }
+
+
 
 
 

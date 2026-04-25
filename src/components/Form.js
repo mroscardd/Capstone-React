@@ -56,7 +56,7 @@ function Form({availableTimes, dispatch, submitForm}) {
             onBlur={() => setBlur({...blur, blurName: true})}
             />
         {data.name.length < 4 && blur.blurName &&
-        <p>Name is required at least 4 characters</p>}
+        <p>* Name is required at least 4 characters</p>}
 
         <label htmlFor="res-date">Choose date</label>
         <input
@@ -69,7 +69,7 @@ function Form({availableTimes, dispatch, submitForm}) {
             onBlur={() => setBlur({...blur, blurDate: true})}
             />
         {new Date(data.date) <= today && blur.blurDate &&
-        <p>Invalid date</p>}
+        <p>* Choose a valid date</p>}
 
         <label htmlFor="res-time">Choose time</label>
         <select
@@ -84,7 +84,7 @@ function Form({availableTimes, dispatch, submitForm}) {
             {availableTimes?.map(p => <option key={p} value={p}>{p}</option>)}
         </select>
         {data.time === '' && blur.blurTime &&
-        <p>Choose the hour</p>}
+        <p>* Choose the hour</p>}
         <label htmlFor="guests">Number of guests</label>
         <input
             type="number"
@@ -107,7 +107,8 @@ function Form({availableTimes, dispatch, submitForm}) {
             <option value="Enjoy">Enjoy</option>
             <option value="Anniversary">Anniversary</option>
         </select>
-        <input type="submit"
+        <input className="sumbitButton"
+            type="submit"
             value="Make Your reservation"
             aria-label="On Click"
             disabled={isValid}
