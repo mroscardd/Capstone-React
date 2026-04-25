@@ -8,8 +8,11 @@ import data from './components/Form'
 
 
 test('booking test', () => {
-  render(<BookingPage />);
-  const linkElement = screen.getByText(/make your reservation/i);
+  const mockData = { name: "" };
+  const mockSetData = jest.fn();
+  render(<BookingPage data={mockData} setData={mockSetData}/>);
+
+  const linkElement = screen.getByText(/number of guests/i);
   expect(linkElement).toBeInTheDocument();
 });
 
@@ -29,22 +32,29 @@ test('updateTimes', () => {
 
 describe('test form' , () => {
 
+
   test('name atributes', () => {
-    render(<Form/>)
+    const mockData = {name: ''};
+    const mockSetData = jest.fn();
+    render(<Form data={mockData} setData={mockSetData}/>)
+
 
     const input = screen.getByLabelText(/name/i)
     fireEvent.change(input, {target: {value:'Jaime'}})
     expect(input).toHaveAttribute('type', 'text')
     expect(input).toHaveAttribute('id', 'res-name')
-    expect(input).toHaveValue('Jaime')
     expect(input).toHaveAttribute('maxLength', '20')
     expect(input).toHaveAttribute('id', 'res-name')
     expect(input).toBeRequired()
+    expect(mockSetData).toHaveBeenCalledWith({ name: 'Jaime' });
+
   })
 
 test('date atributes', () => {
+    const mockData = { name: "" };
+    const mockSetData = jest.fn();
     const mockDispatch = jest.fn()
-    render(<Form dispatch={mockDispatch}/>)
+    render(<Form dispatch={mockDispatch} data={mockData} setData={mockSetData}/>)
 
     const input = screen.getByLabelText(/choose date/i)
     fireEvent.change(input, {target: {value:'2026-02-02'}})
@@ -55,9 +65,12 @@ test('date atributes', () => {
   })
 
 test('time atributes', () => {
+    const mockData = { name: "" };
+    const mockSetData = jest.fn();
     const mockDispatch = jest.fn()
     const mockavailableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00"]
-    render(<Form availableTimes={mockavailableTimes} dispatch={mockDispatch} />)
+    render(<Form availableTimes={mockavailableTimes} dispatch={mockDispatch} data={mockData} setData={mockSetData}/>)
+    
     const input = screen.getByLabelText(/choose time/i)
     fireEvent.change(input, {target: {value: '18:00'}})
     expect(input).toHaveAttribute('id', 'res-time')
@@ -67,7 +80,9 @@ test('time atributes', () => {
   })
 
  test('guest atributes', () => {
-    render(<Form/>)
+    const mockData = { name: "" };
+    const mockSetData = jest.fn();
+    render(<Form data={mockData} setData={mockSetData}/>)
 
     const input = screen.getByLabelText(/number of guests/i)
     fireEvent.change(input, {target: {value: 3}})
@@ -80,7 +95,9 @@ test('time atributes', () => {
   })
 
 test('occasion atributes', () => {
-    render(<Form/>)
+    const mockData = { name: "" };
+    const mockSetData = jest.fn();
+    render(<Form data={mockData} setData={mockSetData}/>)
 
     const input = screen.getByLabelText(/occasion/i)
     fireEvent.change(input, {target: {value:'Enjoy'}})
@@ -90,21 +107,26 @@ test('occasion atributes', () => {
 
 test('test disabled button enabled', () => {
 
+    const validData = {
+        name: "Jaime",
+        date: "2029-09-09",
+        time: "18:00",
+        guests: 2,
+        occasion: "Birthday" // Asegúrate de incluir TODOS los campos que valides
+    };
+    const mockSetData = jest.fn();
     const mockDispatch = jest.fn()
     const mockavailableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00"]
 
-    render(<Form availableTimes={mockavailableTimes} dispatch={mockDispatch} />)
+    render(<Form availableTimes={mockavailableTimes} dispatch={mockDispatch} data={validData} setData={mockSetData}/>)
 
     const validButton = screen.getByRole('button', { value: /Make Your reservation/i })
     const inputName = screen.getByLabelText(/name/i)
     const inputDate = screen.getByLabelText(/choose date/i)
     const inputTime = screen.getByLabelText(/choose time/i)
 
-    fireEvent.change(inputName, {target: {value:'Jaime'}})
     fireEvent.blur(inputName)
-    fireEvent.change(inputDate, {target: {value:'2029-09-09'}})
     fireEvent.blur(inputDate)
-    fireEvent.change(inputTime, {target: {value: '18:00'}})
     fireEvent.blur(inputTime)
 
     expect(validButton).toBeEnabled()
@@ -113,21 +135,26 @@ test('test disabled button enabled', () => {
 
 test('test disabled button disabled', () => {
 
+    const validData = {
+        name: "Jaime",
+        date: "2026-02-09",
+        time: "18:00",
+        guests: 2,
+        occasion: "Birthday" // Asegúrate de incluir TODOS los campos que valides
+    };
+    const mockSetData = jest.fn();
     const mockDispatch = jest.fn()
     const mockavailableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00"]
 
-    render(<Form availableTimes={mockavailableTimes} dispatch={mockDispatch} />)
+    render(<Form availableTimes={mockavailableTimes} dispatch={mockDispatch} data={validData} setData={mockSetData}/>)
 
     const validButton = screen.getByRole('button', { value: /Make Your reservation/i })
     const inputName = screen.getByLabelText(/name/i)
     const inputDate = screen.getByLabelText(/choose date/i)
     const inputTime = screen.getByLabelText(/choose time/i)
 
-    fireEvent.change(inputName, {target: {value:'Jaime'}})
     fireEvent.blur(inputName)
-    fireEvent.change(inputDate, {target: {value:'2026-02-09'}})
     fireEvent.blur(inputDate)
-    fireEvent.change(inputTime, {target: {value: '18:00'}})
     fireEvent.blur(inputTime)
 
     expect(validButton).toBeDisabled()

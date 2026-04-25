@@ -4,10 +4,7 @@ const today = new Date()
     today.setHours(0, 0, 0, 0)
 
 
-function Form({availableTimes, dispatch, submitForm}) {
-    const [data, setData] = useState(
-        {name: "", date: "", time: "", guest: "2", occasion:"Birthday" }
-    )
+function Form({availableTimes, dispatch, submitForm, data, setData}) {
 
     const[blur, setBlur] = useState(
         {blurName: false, blurDate: false, blurTime: false }

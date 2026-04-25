@@ -5,7 +5,7 @@ import HomePage from './views/HomePage'
 import BookingPage from './views/BookingPage'
 import ConfirmedBooking from './views/ConfirmedBooking'
 import {Routes, Route, useNavigate} from 'react-router-dom'
-import { useReducer } from 'react';
+import { useReducer, useState } from 'react';
 import { fetchAPI } from './api';
 import { submitAPI } from './api'
 
@@ -30,6 +30,9 @@ export const updateTimes = (state, action) => {
 
 function App() {
 
+    const [data, setData] = useState(
+            {name: "", date: "", time: "", guest: "2", occasion:"Birthday" }
+        )
 
     const[availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes)
 
@@ -47,11 +50,24 @@ function App() {
             <Header/>
             <main>
                 <Routes>
-                <Route path="/" element={<HomePage/>}></Route>
-                <Route path="/booking" element={<BookingPage
-                    availableTimes={availableTimes}
-                    dispatch = {dispatch} submitForm={submitForm}/>}></Route>
-                <Route path="/booking/confirmed" element={<ConfirmedBooking/>}></Route>
+                <Route
+                    path="/"
+                    element={<HomePage/>}>
+                </Route>
+                <Route
+                    path="/booking"
+                    element={<BookingPage
+                        availableTimes={availableTimes}
+                        dispatch = {dispatch}
+                        submitForm={submitForm}
+                        data={data}
+                        setData={setData}/>}>
+                </Route>
+                <Route path="/booking/confirmed"
+                    element={<ConfirmedBooking
+                        data={data}
+                        setData={setData}/>}>
+                </Route>
                 </Routes>
             </main>
             <Footer/>

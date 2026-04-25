@@ -545,15 +545,14 @@ form {
     font-size: 1rem;
     font-weight: bold;
     border-radius: 20px;
-    border: 2px solid #ffeb89;
+    border: 1px solid #000000;
     width: fit-content;
     padding: 1rem;
     cursor: pointer
   }
 
   .sumbitButton:hover{
-    border: 2px solid #e0ba00;
-    color: #fff8d7;
+    color: #f9e78b;
   }
 
   .sumbitButtonDisabled {
@@ -580,13 +579,23 @@ form {
   justify-content: center;
   align-items: center;
   background: #fbdabb;
-  flex: 1 0 auto;
-}
+  min-height:72vh;
+  }
 
 .confimerCard{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgb(123, 123, 123);
+  border-radius: 10px;
+  width: 300px;
+  padding: 1rem;
 }
 
 
