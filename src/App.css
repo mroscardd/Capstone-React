@@ -498,6 +498,7 @@ form {
     align-self: start;
     margin-left: 0.3rem;
     font-size: 0.95rem;
+    margin-bottom: -0.6rem;
 
   }
 
@@ -517,6 +518,7 @@ form {
     font-size: 0.8rem;
     align-self: start;
     margin-left: 0.3rem;
+    margin-top: -0.6rem
   }
 
 .sumbitButton{
