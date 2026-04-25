@@ -14,7 +14,7 @@ function Footer () {
                 <div>
                     <h4>Navigation</h4>
                     <ul>
-                        <li><Link to="/">Home</Link></li>
+                        <li><HashLink smooth to="/#header">Home</HashLink></li>
                         <li><HashLink smooth to="/#about">About</HashLink></li>
                         <li><HashLink smooth to="/#highlights">Menu</HashLink></li>
                         <li><Link to="/booking">Reservations</Link></li>

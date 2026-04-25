@@ -15,7 +15,7 @@ function Hero () {
 
 
                 </div>
-                <img src={hero} alt="imagen de comida"/>
+                <img src={hero} alt="Our best cuisine"/>
             </div>
         </section>
     )

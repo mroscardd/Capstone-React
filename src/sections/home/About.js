@@ -13,8 +13,8 @@ function About () {
                 </p>
             </div>
             <div className="second">
-                <img src={marioB} className="b" alt="description"/>
-                <img className="a" src={marioA} alt="description"/>
+                <img src={marioB} className="b" alt="Mario and Adrian cooking"/>
+                <img className="a" src={marioA} alt="Mario and Adrian cooking"/>
             </div>
         </section>
     )

@@ -15,8 +15,8 @@ function Nav () {
 
     return(
         <nav>
-            <div className="menu-icon" onClick={toggleMenu}>
-              <img className={menuOpen ? "bar open" : "bar"} src={burger}/>
+            <div className="menu-icon" onClick={toggleMenu} onBlur={() => setTimeout(() => {setMenuOpen(false)}, 150)} tabIndex="0">
+              <img className={menuOpen ? "bar open" : "bar"} src={burger} alt='navegacion'/>
             </div>
             <ul className={menuOpen ? "nav-links active" : "nav-links"}>
               <li><Link to="/">Home</Link></li>

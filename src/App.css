@@ -66,7 +66,18 @@ header {
   gap: 2rem;
   padding: 1.2rem 0 1.2rem 0;
   color: white;
+  z-index: 100;
+  animation: sliceMenu 0.5s ease
 }
+
+@keyframes sliceMenu {
+    from{
+      right: -200px;
+    }
+    to{
+      right: 0;
+    }
+  }
 
 
 .nav-links.active {
@@ -87,6 +98,7 @@ nav a {
 
 nav a:hover{
     color: #f9e78b;
+    transition: 0.2s;
   }
 
 @media (min-width: 850px) {
@@ -168,7 +180,25 @@ main{
   border-radius: 20px;
   width: 20rem;
   object-fit: cover;
+  animation: none
 }
+
+
+
+@media (min-width: 700px) {
+
+  #hero img {
+  animation: slide 1.4s ease
+}
+
+  @keyframes slide {
+  from{
+    transform: translateY(-40px);
+  }
+  to{transform: translateY(0)}
+}
+}
+
 
 
 #hero h1{
@@ -219,7 +249,7 @@ main{
 
 #hero .button {
   align-self: start;
-  
+
 }
 
 }
@@ -259,6 +289,7 @@ main{
 
 #order:hover{
     color: #f9e78b;
+    transition: 0.2s;
   }
 
 .allCards {
@@ -363,7 +394,8 @@ main{
 }
 
 strong:hover {
-    color: #f9e78b;
+    color: #757575;
+    transition: 0.2s;
 }
 
 
@@ -564,7 +596,23 @@ form {
     border: none;
     width: fit-content;
     padding: 1rem;
-    cursor: pointer
+    cursor: pointer;
+    animation: alert 0.5s ease-in-out
+  }
+
+  @keyframes alert {
+    0%{
+      scale: 1;
+      color: #ffffff
+    }
+    50%{
+      scale: 1.02;
+      color: #f9e78b;
+    }
+    100%{
+      scale: 1;
+      color: #ffffff;
+    }
   }
 
   .sumbitButton:hover{
@@ -603,6 +651,19 @@ form {
   flex-direction: column;
   align-items: center;
 }
+
+.confimerCard img{
+  animation: check 1s ease-in-out
+}
+
+@keyframes check {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 
 .data {
   display: flex;
