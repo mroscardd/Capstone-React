@@ -5,7 +5,7 @@ function BookingPage({availableTimes, dispatch, submitForm}) {
     return(
         <section className="bookingPage">
             <div className="imgContainer">
-                <img src={restaurant} alt="restaurant tables"/>
+                <img class="restaurantImg" src={restaurant} alt="restaurant tables"/>
             </div>
             <div class="formContainer">
                 <Form availableTimes={availableTimes} dispatch = {dispatch} submitForm={submitForm}/>
