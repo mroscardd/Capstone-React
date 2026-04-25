@@ -107,7 +107,7 @@ function Form({availableTimes, dispatch, submitForm}) {
             <option value="Enjoy">Enjoy</option>
             <option value="Anniversary">Anniversary</option>
         </select>
-        <input className="sumbitButton"
+        <input className={isValid? "sumbitButtonDisabled": "sumbitButton" }
             type="submit"
             value="Make Your reservation"
             aria-label="On Click"
