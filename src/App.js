@@ -33,6 +33,7 @@ function App() {
     const [data, setData] = useState(
             {name: "", date: "", time: "", guest: "2", occasion:"Birthday" }
         )
+    const [book, setBook] = useState('null')
 
     const[availableTimes, dispatch] = useReducer(updateTimes, [], initializeTimes)
 
@@ -40,8 +41,8 @@ function App() {
 
     const submitForm = (formdata) => {
         submitAPI(formdata)
+        setBook(data)
         navigate("booking/confirmed")
-
     }
 
 
@@ -65,8 +66,8 @@ function App() {
                 </Route>
                 <Route path="/booking/confirmed"
                     element={<ConfirmedBooking
-                        data={data}
-                        setData={setData}/>}>
+                        book={book}
+                        setBook={setBook}/>}>
                 </Route>
                 </Routes>
             </main>

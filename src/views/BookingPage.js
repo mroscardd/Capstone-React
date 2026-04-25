@@ -10,7 +10,7 @@ function BookingPage({availableTimes, dispatch, submitForm, data, setData}) {
             <div className="formContainer">
                 <Form
                 availableTimes={availableTimes}
-                dispatch = {dispatch}
+                dispatch={dispatch}
                 submitForm={submitForm}
                 data={data}
                 setData={setData}

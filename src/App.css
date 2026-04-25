@@ -41,7 +41,6 @@ header {
   filter: brightness(1.5)
 }
 
-
 .menu-icon {
   cursor: pointer;
   padding: 0.5rem;
@@ -69,6 +68,7 @@ header {
   color: white;
 }
 
+
 .nav-links.active {
   display: flex;
 
@@ -84,6 +84,10 @@ nav a {
   font-weight: bold;
   color: white;
 }
+
+nav a:hover{
+    color: #f9e78b;
+  }
 
 @media (min-width: 850px) {
 
@@ -189,6 +193,10 @@ main{
   align-self: center;
 }
 
+#hero .button:hover{
+    color: #f9e78b;
+  }
+
 
 @media (min-width: 700px) {
 
@@ -211,6 +219,7 @@ main{
 
 #hero .button {
   align-self: start;
+  
 }
 
 }
@@ -247,6 +256,10 @@ main{
   font-weight: bold;
   white-space: nowrap
 }
+
+#order:hover{
+    color: #f9e78b;
+  }
 
 .allCards {
   display: flex;
@@ -349,6 +362,9 @@ main{
   flex-grow: 1;
 }
 
+strong:hover {
+    color: #f9e78b;
+}
 
 
 /* ABOUT */
@@ -545,7 +561,7 @@ form {
     font-size: 1rem;
     font-weight: bold;
     border-radius: 20px;
-    border: 1px solid #000000;
+    border: none;
     width: fit-content;
     padding: 1rem;
     cursor: pointer

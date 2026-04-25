@@ -35,7 +35,7 @@ function Form({availableTimes, dispatch, submitForm, data, setData}) {
     const handleSubmit= (e) => {
         e.preventDefault()
         submitForm(data)
-        console.log(data)
+        setData({name: "", date: "", time: "", guest: "2", occasion:"Birthday" })
 
     }
 
